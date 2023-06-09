@@ -1,0 +1,48 @@
+.containerPrimary {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.img {
+  width: 120px;
+  height: 120px;
+}
+.containerLinks {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid green;
+  padding: 5px;
+  margin: 5px;
+  font-size: 20px;
+}
+.containerLinks a {
+  text-decoration: none;
+  padding: 5px;
+  color: black;
+}
+.containerLinks a:hover {
+  color: green;
+}
+.containerLoginAndRegister {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid red;
+}
+.containerLoginAndRegister a {
+  color: black;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid green;
+  text-decoration: none;
+}
+.containerIconCart {
+  border: 1px solid red;
+  margin: 5px;
+}

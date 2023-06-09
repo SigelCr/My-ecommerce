@@ -1,0 +1,11 @@
+.iconCart {
+  font-size: 30px;
+  color: black;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  right: 5px;
+  top: 20px;
+}
