@@ -5,22 +5,23 @@ import styled from "./DropdownMenu.module.css";
 const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => {
+  const toggleDropDown = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <div>
-      <Link onClick={toggleDropdown}>Productos</Link>
+      <Link onClick={toggleDropDown}>Productos</Link>
+
       <div
         className={`${styled.containerLinksProducts} ${
           isOpen ? styled.open : ""
         }`}
       >
         <Link to="/products">Todos los productos</Link>
-        <Link to="/clothes">Ropa</Link>
+        <Link to="/clothes">Indumentaria</Link>
         <Link to="/footwear">Calzado</Link>
-        <Link to="/bijouterie">Bijouteries</Link>
+        <Link to="/bijouteries">Bijouterie</Link>
       </div>
     </div>
   );
