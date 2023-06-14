@@ -23,7 +23,11 @@ function CartWidget() {
   return (
     <Link to="/cart">
       <IconButton aria-label="cart">
-        <StyledBadge badgeContent="999" color="secondary">
+        <StyledBadge
+          style={{ zIndex: "0" }}
+          badgeContent="999"
+          color="secondary"
+        >
           <ShoppingCartIcon className={estilos.iconoCarrito} />
         </StyledBadge>
       </IconButton>

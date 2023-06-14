@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 import ProductList from "./ProductList";
 import { products } from "../../ProductsMocks";
+import { useParams } from "react-router-dom";
 
 const ProductListContainer = () => {
   const [items, setItems] = useState([]);
 
+  const { categoryName } = useParams();
+  console.log(categoryName);
+
   useEffect(() => {
+    const productsFiltered = products.filter(
+      (prod) => prod.category === categoryName
+    );
+
     const task = new Promise((resolve, reject) => {
-      resolve(products);
+      resolve(categoryName ? productsFiltered : products);
     });
     task
       .then((res) => {
@@ -16,7 +24,7 @@ const ProductListContainer = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [categoryName]);
 
   return (
     <div>

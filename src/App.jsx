@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import ProductListContainer from "./components/ProductList/ProductListContainer";
+import { ProductDetailContainer } from "./components/ProductDetail/ProductDetailContainer";
 
 function App() {
   return (
@@ -11,11 +12,15 @@ function App() {
         <Route element={<NavBar />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductListContainer />} />
+          <Route
+            path="/category/:categoryName"
+            element={<ProductListContainer />}
+          />
+          <Route
+            path="/productsDetail/:id"
+            element={<ProductDetailContainer />}
+          />
           <Route path="/contact" element={<h1>contacto</h1>} />
-
-          <Route path="/clothes" element={<h1>aca ropa</h1>} />
-          <Route path="/footwear" element={<h1>aca calzado</h1>} />
-          <Route path="/bijouteries" element={<h1>aca bijouteries</h1>} />
 
           <Route path="/cart" element={<h1>aca el cashito</h1>} />
           <Route path="/login" element={<h1>aca login</h1>} />

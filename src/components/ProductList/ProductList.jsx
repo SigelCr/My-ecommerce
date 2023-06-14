@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "./ProductList.module.css";
+import { Link } from "react-router-dom";
 
 const ProductList = ({ items }) => {
   return (
@@ -14,7 +15,9 @@ const ProductList = ({ items }) => {
                 <img className={styled.img} src={item.img} />
                 <h1 className={styled.title}>{item.title}</h1>
                 <p className={styled.price}>${item.price}</p>
-                <button className={styled.btnDetail}>Ver detalle</button>
+                <Link to={`/productsDetail/${item.id}`}>
+                  <button className={styled.btnDetail}>Ver detalle</button>
+                </Link>
               </div>
             </section>
           );
