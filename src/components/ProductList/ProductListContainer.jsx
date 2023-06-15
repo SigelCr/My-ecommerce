@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProductList from "./ProductList";
 import { products } from "../../ProductsMocks";
 import { useParams } from "react-router-dom";
@@ -14,7 +14,7 @@ const ProductListContainer = () => {
       (prod) => prod.category === categoryName
     );
 
-    const task = new Promise((resolve, reject) => {
+    const task = new Promise((resolve) => {
       resolve(categoryName ? productsFiltered : products);
     });
     task

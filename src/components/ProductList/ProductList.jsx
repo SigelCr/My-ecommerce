@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import styled from "./ProductList.module.css";
 import { Link } from "react-router-dom";
 
