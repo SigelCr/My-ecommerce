@@ -1,19 +1,28 @@
 import { useContext, useEffect, useState } from "react";
 import ProductDetail from "./ProductDetail";
-import { products } from "../../ProductsMocks";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { db } from "../../firebaseConfig";
+import { getDoc, collection, doc } from "firebase/firestore";
 
 export const ProductDetailContainer = () => {
   const [product, setProduct] = useState({});
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, getQuantityById } = useContext(CartContext);
 
   const { id } = useParams();
 
   useEffect(() => {
-    let encontrado = products.find((prod) => prod.id === Number(id));
-    setProduct(encontrado);
+    const itemCollection = collection(db, "products");
+    const refDoc = doc(itemCollection, id);
+    getDoc(refDoc)
+      .then((res) =>
+        setProduct({
+          ...res.data(),
+          id: res.id,
+        })
+      )
+      .catch((error) => console.log(error));
   }, [id]);
 
   const onAdd = (cantidad) => {
@@ -25,9 +34,16 @@ export const ProductDetailContainer = () => {
     addToCart(data);
   };
 
+  let quantityTotal = getQuantityById(product.id);
+  console.log(quantityTotal);
+
   return (
     <div>
-      <ProductDetail onAdd={onAdd} product={product} />
+      <ProductDetail
+        onAdd={onAdd}
+        product={product}
+        quantityTotal={quantityTotal}
+      />
     </div>
   );
 };

@@ -7,6 +7,9 @@ import { ProductDetailContainer } from "./components/ProductDetail/ProductDetail
 import CartContainer from "./components/Cart/CartContainer";
 import Form from "./components/Form/Form";
 import CartContextProvider from "./context/CartContext";
+import Login from "./components/Login/Login";
+import SignUp from "./components/SignUp/SignUp";
+import FormCheckoutContainer from "./components/FormCheckout/FormCheckoutContainer";
 function App() {
   return (
     <BrowserRouter>
@@ -27,8 +30,9 @@ function App() {
 
             <Route path="/cart" element={<CartContainer />} />
             <Route path="/form" element={<Form />} />
-            <Route path="/login" element={<h1>aca login</h1>} />
-            <Route path="/sign-up" element={<h1>aca registrarse</h1>} />
+            <Route path="/checkout" element={<FormCheckoutContainer />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
 
             <Route path="*" element={<h1>ruta inexistente</h1>} />
           </Route>

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const ProductList = ({ items }) => {
   return (
     <div>
-      <h1>aca van TODOS los productos, estoy en ProductList</h1>
       <div className={styled.containerCard}>
         {items.map((item) => {
           return (

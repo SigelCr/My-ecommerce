@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "./DropdownMenu.module.css";
 
@@ -19,9 +19,9 @@ const DropdownMenu = () => {
         }`}
       >
         <Link to="/products">Todos los productos</Link>
-        <Link to="/category/Indumentaria">Indumentaria</Link>
-        <Link to="/category/Calzados">Calzado</Link>
-        <Link to="/category/Bijouteries">Bijouterie</Link>
+        <Link to="/category/indumentaria">Indumentaria</Link>
+        <Link to="/category/calzados">Calzado</Link>
+        <Link to="/category/bijouteries">Bijouterie</Link>
       </div>
       {isOpen && (
         <div className={styled.overlay} onClick={() => setIsOpen(false)}></div>
