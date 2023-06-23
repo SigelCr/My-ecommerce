@@ -1,38 +1,72 @@
 /* eslint-disable react/prop-types */
 import { TextField } from "@mui/material";
 import Wallet from "@mercadopago/sdk-react/bricks/wallet";
-import estilos from "./FormCheckout.module.css";
+import styled from "./FormCheckout.module.css";
 
-const FormCheckout = ({ handleBuy, preferenceId }) => {
-  const cancelRefreshForm = (e) => {
-    e.preventDefault();
-  };
+const FormCheckout = ({
+  handleBuy,
+  preferenceId,
+  handleChange,
+  handleSubmit,
+  errors,
+  values,
+}) => {
   return (
-    <div className={estilos.contenedor}>
-      <h1 className={estilos.titulo}>
+    <div className={styled.container}>
+      <h1 className={styled.title}>
         Rellene con sus datos para completar la compra:
       </h1>
-      <form onSubmit={cancelRefreshForm} className={estilos.contenedorInput}>
-        <p>Nombre:</p>
-        <TextField type="text" placeholder="Nombre" className={estilos.input} />
-        <p>Email:</p>
-        <TextField type="text" placeholder="Email" className={estilos.input} />
-        <p>Telefono:</p>
+      {values.nombre.length > 0 && (
+        <p className={styled.p}>
+          Le aparecera el boton de comprar una vez que complete todos los campos
+          correctamente
+        </p>
+      )}
+      <form onSubmit={handleSubmit} className={styled.containerInput}>
         <TextField
-          type="number"
-          placeholder="Telefono"
-          className={estilos.input}
+          type="text"
+          label="Nombre"
+          className={styled.input}
+          onChange={handleChange}
+          name="nombre"
+          error={errors.nombre ? true : false}
+          helperText={errors.nombre}
         />
-        <p>Contraseña:</p>
-        <TextField placeholder="Contraseña" className={estilos.input} />
-        <p>Confirmar contraseña:</p>
         <TextField
-          placeholder="Confirmar contraseña"
-          className={estilos.input}
+          type="text"
+          label="Email"
+          className={styled.input}
+          onChange={handleChange}
+          name="email"
+          error={errors.email ? true : false}
+          helperText={errors.email}
         />
-        <button onClick={handleBuy} className={estilos.boton} type="submit">
-          Comprar
-        </button>
+        <TextField
+          label="Contraseña"
+          className={styled.input}
+          onChange={handleChange}
+          name="password"
+          error={errors.password ? true : false}
+          helperText={errors.password}
+        />
+        <TextField
+          label="Confirmar contraseña"
+          className={styled.input}
+          onChange={handleChange}
+          name="confirmPassword"
+          error={errors.confirmPassword ? true : false}
+          helperText={errors.confirmPassword}
+        />
+
+        {!errors.nombre &&
+          !errors.email &&
+          !errors.password &&
+          !errors.confirmPassword &&
+          values.confirmPassword.length >= 6 && (
+            <button onClick={handleBuy} className={styled.btn} type="submit">
+              Iniciar compra
+            </button>
+          )}
         {preferenceId && <Wallet initialization={{ preferenceId }} />}
       </form>
     </div>

@@ -1,38 +1,6 @@
-import { Link } from "react-router-dom";
-/* import axios from "axios";
-import { useState } from "react";
-import { initMercadoPago, Wallet } from "@mercadopago/sdk-react"; */
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 const Cart = ({ cart, clearCart, deleteProductById, total, navigate }) => {
-  /*   const [preferenceId, setPreferenceId] = useState(null);
-  initMercadoPago("TEST-1d6e7854-2694-4a5d-999e-7a5c878b321f");
-
-  const createPreference = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/create_preference",
-        {
-          description: "nombre del prod",
-          price: 100,
-          quantity: 1,
-          currency_id: "ARS",
-        }
-      );
-
-      const { id } = response.data;
-      return id;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleBuy = async () => {
-    const id = await createPreference();
-    if (id) {
-      setPreferenceId(id);
-    }
-  }; */
-
   return (
     <div>
       {cart.length > 0 ? (
@@ -44,6 +12,8 @@ const Cart = ({ cart, clearCart, deleteProductById, total, navigate }) => {
               <div key={e.id}>
                 <h1>{e.title}</h1>
                 <h2>{e.quantity}</h2>
+                <h3>{e.description}</h3>
+                <p>{e.price}</p>
                 <button
                   onClick={() => {
                     deleteProductById(e.id);
@@ -71,12 +41,3 @@ const Cart = ({ cart, clearCart, deleteProductById, total, navigate }) => {
 };
 
 export default Cart;
-
-/* <div>
-          <h1 className={estilos.titulo}>
-            No hay ningun producto agregado al carrito
-          </h1>
-          <Link to="/">
-            <button className={estilos.botones}>Agregar productos</button>
-          </Link>
-        </div>*/

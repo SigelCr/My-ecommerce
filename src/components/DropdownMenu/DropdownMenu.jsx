@@ -20,8 +20,8 @@ const DropdownMenu = () => {
       >
         <Link to="/products">Todos los productos</Link>
         <Link to="/category/indumentaria">Indumentaria</Link>
-        <Link to="/category/calzados">Calzado</Link>
-        <Link to="/category/bijouteries">Bijouterie</Link>
+        <Link to="/category/calzados">Calzados</Link>
+        <Link to="/category/bijouteries">Bijouteries</Link>
       </div>
       {isOpen && (
         <div className={styled.overlay} onClick={() => setIsOpen(false)}></div>

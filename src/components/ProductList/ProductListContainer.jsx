@@ -26,7 +26,6 @@ const ProductListContainer = () => {
     getDocs(consulta)
       .then((res) => {
         const products = res.docs.map((product) => {
-          console.log(product.data(), product.id);
           return {
             ...product.data(),
             id: product.id,
@@ -41,7 +40,7 @@ const ProductListContainer = () => {
 
   const loading = (
     <div style={{ display: "flex", justifyContent: "center", margin: "150px" }}>
-      <PulseLoader color="black" size={20} speedMultiplier={0.5} />;
+      <PulseLoader color="black" size={20} speedMultiplier={0.5} />
     </div>
   );
 
